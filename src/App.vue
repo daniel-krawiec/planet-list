@@ -1,7 +1,10 @@
 <template>
-  <PlanetList />
+  <AppHeader></AppHeader>
+  <RouterView />
+  <AppFooter></AppFooter>
 </template>
 <script setup lang="ts">
-import PlanetList from './views/PlanetList.vue'
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
 <style scoped></style>
