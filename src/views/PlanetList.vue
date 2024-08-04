@@ -7,7 +7,8 @@
         :value="planetsData.value"
         data-key="name"
         sortable
-        >
+        :loading="loading"
+    >
         <Column key="name" field="name" header="Name" sortable></Column>
         <Column key="population" field="population" header="Population" sortable></Column>
         <Column key="rotation_period" field="rotation_period" header="Rotation Period" sortable></Column>
@@ -19,6 +20,7 @@
             </template>
         </Column>
         <Column key="url" field="url" header="Url" sortable></Column>
+        <template #loading> Loading Planets. Please wait. </template>
     </DataTable>
     <div class="pagination-section">
         <Button></Button>
@@ -29,19 +31,33 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, onMounted, ref } from 'vue'
 import SearchBar from '../components/SearchBar.vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Button from 'primevue/button';
 import { DateTime } from 'luxon'
+import { PlanetsDataService } from '../service/PlanetsDataService'
+import PlanetsResponseData from '../types/PlanetsResponseData'
 
-let planetsData = reactive({})
-
-
+let planetsData: PlanetsResponseData = reactive({})
+const loading = ref(true);
 function createdTimeFormat(date:string) { 
     return DateTime.fromISO(date).toFormat('HH:mm dd-MM-yyyy')
 }
+function fetchData() {
+    PlanetsDataService()
+    .then((response: PlanetsResponseData) => { 
+        planetsData.value = response
+        loading.value = false;
+    }).catch(response => { 
+        loading.value = false;
+        console.log(response)
+    })
+}
+onMounted(() => {
+    fetchData()
+})
 </script>
 
 <style scoped></style>
