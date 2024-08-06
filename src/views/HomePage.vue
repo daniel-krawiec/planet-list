@@ -1,15 +1,28 @@
 <template>
-    <h1>{{ WelcomeTitle }}</h1>
-    <p> {{ ShortDescription }}</p>
-    <Button as="router-link" label="Enter" icon="pi pi-globe" to="/list"/>
+    <div class="wrapper">
+        <h3>{{ WelcomeTitle }}</h3>
+        <p> {{ ShortDescription }}</p>
+    </div>
 </template>
 
 <script setup lang="ts">
-import Button from 'primevue/button';
-
 const WelcomeTitle: string = 'Welcome to Planet List'
-const ShortDescription: string = 'Please push the button below to enter the world of Planets.'
-
+const ShortDescription: string = 'Please push the button above to enter the world of Planets.'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: calc(100vh - 180px);
+    h3 {
+        margin-bottom: 15px;
+    }
+    p {
+        text-align: center;
+    }
+}
+</style>

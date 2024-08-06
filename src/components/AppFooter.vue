@@ -9,4 +9,15 @@
 const mailTo: string = 'daniel-krawiec@hotmail.com'
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #18181b;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+</style>

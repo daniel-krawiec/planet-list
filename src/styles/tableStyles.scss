@@ -1,0 +1,39 @@
+.p-datatable {
+    padding: 0 10px;
+    .p-datatable-header {
+        div {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        button:first-of-type {
+            margin-left: 10px;
+        }
+    }
+    :deep(.p-datatable-thead)  {
+        th {
+            font-size: 14px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+    :deep(.p-datatable-tbody) {
+        td  {
+            font-size: 14px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+    }
+    :deep(.p-datatable-paginator-bottom)  {
+        .p-paginator {
+            border-radius: 0;
+            &-content {
+                button {
+                    min-width: 30px;
+                    min-height: 30px;
+                    max-width: 30px;
+                    max-height: 30px;
+                }
+            }
+        }
+    }
+}
