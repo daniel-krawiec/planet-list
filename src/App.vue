@@ -1,12 +1,18 @@
 <template>
-  <AppHeader></AppHeader>
-  <RouterView />
-  <AppFooter></AppFooter>
+  <div id="app">
+    <AppHeader />
+    <main>
+      <RouterView />
+    </main>
+    <AppFooter />
+  </div>
 </template>
+
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import AppFooter from './components/AppFooter.vue'
 </script>
+
 <style lang="scss">
 * {
   margin: 0;
@@ -15,7 +21,7 @@ import AppFooter from './components/AppFooter.vue'
 }
 
 #app {
-  background-image: url("assets/planets.jpg");
+  background-image: url('@/assets/planets.jpg');
   background-size: cover;
   min-height: 100vh;
   min-width: 100vw;

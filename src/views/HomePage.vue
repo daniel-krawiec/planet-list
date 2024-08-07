@@ -1,13 +1,13 @@
 <template>
     <div class="wrapper">
-        <h3>{{ WelcomeTitle }}</h3>
-        <p> {{ ShortDescription }}</p>
+        <h3>{{ welcomeTitle }}</h3>
+        <p>{{ shortDescription }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
-const WelcomeTitle: string = 'Welcome to Planet List'
-const ShortDescription: string = 'Please push the button above to enter the world of Planets.'
+const welcomeTitle = 'Welcome to Planet List';
+const shortDescription = 'Please push the button above to enter the world of Planets.';
 </script>
 
 <style lang="scss" scoped>
@@ -18,11 +18,13 @@ const ShortDescription: string = 'Please push the button above to enter the worl
     justify-content: center;
     padding: 20px;
     height: calc(100vh - 180px);
-    h3 {
-        margin-bottom: 15px;
-    }
-    p {
-        text-align: center;
-    }
+}
+
+h3 {
+    margin-bottom: 15px;
+}
+
+p {
+    text-align: center;
 }
 </style>

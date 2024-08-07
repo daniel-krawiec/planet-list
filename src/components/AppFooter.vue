@@ -1,16 +1,16 @@
 <template>
-    <footer>
+    <footer class="footer">
         <p>Planet List</p>
-        <p><a href="mailto:${{ mailTo }}">{{ mailTo }}</a></p>
+        <a :href="`mailto:${mailTo}`">{{ mailTo }}</a>
     </footer>
 </template>
 
 <script setup lang="ts">
-const mailTo: string = 'daniel-krawiec@hotmail.com'
+const mailTo = 'daniel-krawiec@hotmail.com'
 </script>
 
 <style lang="scss" scoped>
-footer {
+.footer {
     display: flex;
     width: 100%;
     justify-content: space-between;

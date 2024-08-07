@@ -12,7 +12,7 @@
         filterDisplay="row"
         :globalFilterFields="['name', 'climate']"
         scrollable
-        scrollHeight="500px"
+        scrollHeight="calc(100vh - 330px)"
       >
         <template #header>
           <div class="flex justify-between">
