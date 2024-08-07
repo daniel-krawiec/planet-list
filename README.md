@@ -6,6 +6,6 @@ npm install
 
 npm run dev
 
-### Run tests
+## Run tests
 
 npm run test
