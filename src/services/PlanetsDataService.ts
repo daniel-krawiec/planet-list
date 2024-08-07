@@ -1,25 +1,24 @@
-import axios from 'axios'
-import PlanetsResponseData from '../types/PlanetsResponseData'
+import axios from 'axios';
+import PlanetsResponseData from '../types/PlanetsResponseData';
 
-export const PlanetsDataService = async () => {
-    let pageNumber: number = 1
-    let nextPagesAvailable: boolean = true;
-    const BASE_URL: string = 'https://swapi.dev/api/planets/?page='
-    const planetsData: PlanetsResponseData[] = []
+export const PlanetsDataService = async (): Promise<PlanetsResponseData[]> => {
+    const BASE_URL = 'https://swapi.dev/api/planets/?page=';
+    let pageNumber = 1;
+    const planetsData: PlanetsResponseData[] = [];
 
-    do {
-        const response = await axios.get(BASE_URL + pageNumber)
-        const { data } = response;
-        data.results.forEach((element: PlanetsResponseData) => {
-            planetsData.push(element)
-        });
-        if(data.next) {
-            nextPagesAvailable = true
-        } else {
-            nextPagesAvailable = false
+    try {
+        while (true) {
+            const response = await axios.get(`${BASE_URL}${pageNumber}`);
+            const { data } = response;
+            planetsData.push(...data.results);
+
+            if (!data.next) break;
+            pageNumber++;
         }
-        pageNumber++;
-    } while(nextPagesAvailable)
-    
+    } catch (error) {
+        console.error('Error fetching planets data:', error);
+        throw new Error('Failed to fetch planets data');
+    }
+
     return planetsData;
-}
+};
